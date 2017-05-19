@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Numbers Facts";
+}
+<h2>@ViewBag.Title.</h2>
+@using (Ajax.BeginForm("Numbers", new AjaxOptions
+{
+    UpdateTargetId = "results",
+    LoadingElementId = "loading"
+}))
+{
+    <select name="type">
+        <option value="trivia">Trivia</option>
+        <option value="math">Math</option>
+        <option value="date">Date</option>
+        <option value="year">Year</option>
+    </select>
+    <label>min</label>
+    <input type="number" name="min" value="0">
+    <label>max</label>
+    <input type="number" name="max" value="15">
+    <input type="submit" value="Learn the fact" />
+
+}
+
+<div id="loading" style="display:none; color:Red; font-weight:bold;">
+    <p>Loading...</p>
+</div>
+<div id="results">
+
+</div>
+
+
+
+
